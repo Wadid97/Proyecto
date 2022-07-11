@@ -1,0 +1,35 @@
+body{
+    background: red;
+}
+.tiulo{
+    text-align: center;
+}
+th,td{
+    text-align: center;
+    vertical-align: middle;
+}
+thead{
+    margin-right: 5rem;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    color:#0d6efd;
+}
+.from-group{
+    margin: 1rem;
+}
+.le{
+    margin-left:7.5rem ;
+    color:#0d6efd;
+    
+}
+tr{
+    color:#0d6efd;
+}
+.card{
+    background: whitesmoke;
+}
+.logout{
+    color: #fff;
+}

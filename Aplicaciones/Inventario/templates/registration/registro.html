@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resgiste</title>
+     <style>
+       *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        :root{
+            --center:center;
+        }
+        .login-container{
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background:#3a86ff;
+            flex-direction: column;
+            color: #fff;
+        }
+        .login-registro{
+            border: 3px solid #fff;
+            border-radius: .75rem;
+            padding: 8rem 2rem;
+        }
+        .from-input{
+            display: block;
+            margin-top: .75rem;
+            margin-bottom: 1.5rem;
+            padding: .4rem 4rem;
+            text-align: var(--center);
+            border-radius: .75rem;
+            border: none;
+            font-size: 1rem;
+            color: black;
+        }
+        .from-input:hover{
+            background: #cdb4db;
+            cursor: pointer;
+            color: #fff;
+        }
+        h1{
+            position: relative;
+            top: 4rem;
+            text-align: center;
+            font-size: 700;
+            color:#fff;
+        }
+        a{
+            background: #fff;
+            text-decoration: none;
+        }
+        a:hover{
+            background: #cdb4db;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Registrate</h1>
+        <div class="login-registro">
+            {% block content %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="from-input" type="submit" name="submit">
+                <a class="from-input" href="{% url 'login' %}">Login</a>
+            </form>    
+            {% endblock content %}
+        </div>
+    </div>
+        
+</body>
+</html>

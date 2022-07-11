@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+       *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        :root{
+            --center:center;
+        }
+        .login-container{
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background:#3a86ff;
+            flex-direction: column;
+        }
+        .login-registro{
+            border: 3px solid #fff;
+            border-radius: .75rem;
+            padding: 8rem 2rem;
+        }
+        .from-input, button{
+            display: block;
+            margin-top: .75rem;
+            margin-bottom: 1.5rem;
+            padding: .7rem 4rem;
+            text-align: var(--center);
+            border-radius: .75rem;
+            border: none;
+            font-size: 1rem;
+            color: black;
+        }
+        .from-input:hover::placeholder{
+            color: #fff;
+        }
+        .botton1:hover{
+            background:#f1c0e8;
+            opacity: 1;
+            color: #fff;
+        }
+        
+        h1{
+            position: relative;
+            top: 4rem;
+            text-align: center;
+            font-size: 700;
+            color:#fff;
+        }
+        button{
+            width: 100%;
+            padding: .7rem 0;
+            border-radius: .75rem;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover, .botton2:hover, a:hover{
+            background:#cdb4db;
+            opacity: 100%;
+            color: #fff;
+        }
+        .buton:hover{
+            background: black;
+        }
+        a{
+            text-decoration: none;
+            background: #ffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <div class="login-registro">
+            <form   method="POST">
+                {% csrf_token %}
+                {% if user.is_authenticated %}
+                <a href="{% url 'registro' %}">Register</a>
+                {% else %}
+                <input class="from-input botton1" type="text" name="username" placeholder="User">
+                <input class="from-input botton2" type="password" name="password" placeholder="Password">
+                <button type="submit">Login</button>
+                <a  class="from-input " href="{% url 'registro' %}">Register</a>
+                {% endif%}
+            </form>
+        </div>
+    </div>
+</body>
+</html>

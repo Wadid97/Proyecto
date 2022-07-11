@@ -1,0 +1,30 @@
+{% extends "./base.html" %}
+
+{%block body%}
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card">
+                <div class="card-body" >
+                    <form action="/editarH/" method="POST" style="margin: 1rem;">{% csrf_token %}
+                        <legend >Ingreso</legend>
+                        <div class="from-group">
+                            <input type="text" id="txtNumero" name="txtNumero" value="{{entrada.id}}" class="form-control" placeholder="Numero" maxlength="6" readonly required >
+                        </div>
+                        <div class="from-group">
+                            <input type="text" id="txtTipo" name="txtTipo" class="form-control" value="{{entrada.tipoEntrada}}" placeholder="Tipo" maxlength="6" required>
+                        </div>
+                        <div class="from-group">
+                            <input type="text" id="txtMarca" name="txtMarca" class="form-control" value="{{entrada.marca}}" placeholder="Marca" maxlength="25" required>
+                        </div>
+                        <div>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <button class="btn btn-success" type="submit">Enviar</button>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

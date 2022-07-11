@@ -1,0 +1,33 @@
+{% extends "./base.html" %}
+{% block body %}
+<div class="container">
+    <h1 >Usuarios</h1>
+</div>
+
+<div class="col-sm-12 col-md-6 col-lg-8 col-xl-8" style=" width: 100%; padding-bottom:45px;">
+    <div class="table-responsive">
+        <table class="table table-striped" >
+            <thead>
+                <tr>
+                    <th>usuario</th>
+                    <th>Contraseña</th>
+                    <th>Nombre</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th colspan="2">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in Entrada%}
+                <tr>
+                    <td>{{e.author}}</td>
+                    <td>{{e.password}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+{% endblock %}

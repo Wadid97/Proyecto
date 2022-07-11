@@ -1,0 +1,64 @@
+{% extends "./base.html" %}
+{% block body %}
+<div class="container">
+    <h1 >Inventarios de la sala informatica UDC</h1>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <div class="card">
+            <div class="card-body" >
+                <form action="/registrarEntradas/" method="POST" style="margin: 1rem;">{% csrf_token %}
+                    <legend class="le">Ingreso</legend>
+                    <div class="from-group">
+                        <input type="text" id="txtNumero" name="txtNumero" class="form-control" placeholder="Numero" maxlength="6" required>
+                    </div>
+                    <div class="from-group">
+                        <input type="text" id="txtTipo" name="txtTipo" class="form-control" placeholder="Tipo" maxlength="6" required>
+                    </div>
+                    <div class="from-group">
+                        <input type="text" id="txtMarca" name="txtMarca" class="form-control" placeholder="Marca" maxlength="25" required>
+                    </div>
+                    <div>
+                        <div class="from-group">
+                           <div class="d-grid gap-2 col-6 mx-auto">
+                                <button class="btn btn-success" type="submit">Enviar</button>
+                            </div>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>ID</th>
+                    <th>Tipo de entrada</th>
+                    <th>Marca</th>
+                    <th colspan="2">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in Entradas %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{e.id}}</td>
+                    <td>{{e.tipoEntrada}}</td>
+                    <td>{{e.marca}}</td>
+                    <td><a href="edicionEntradas/{{e.id}}" class="btn btn-info">Actualizar</a></td>
+                    <td><a href="eliminacionEntradas/{{e.id}}" class="btn btn-danger">Eliminar</a></td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+{% endblock %}
